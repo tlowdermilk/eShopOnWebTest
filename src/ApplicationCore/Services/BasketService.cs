@@ -25,11 +25,7 @@ public class BasketService : IBasketService
         var basketSpec = new BasketWithItemsSpecification(username);
         var basket = await _basketRepository.FirstOrDefaultAsync(basketSpec);
 
-        if (basket == null)
-        {
-            basket = new Basket(username);
-            await _basketRepository.AddAsync(basket);
-        }
+        await _basketRepository.AddAsync(basket);        
 
         basket.AddItem(catalogItemId, price, quantity);
 
