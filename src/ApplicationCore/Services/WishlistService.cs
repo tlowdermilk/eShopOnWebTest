@@ -34,17 +34,7 @@ public class WishlistService : IWishlistService
         return wishlist;
     }
 
-
-    public async Task<Wishlist> RemoveItemFromWishlist(string username, int catalogItemId)
-    {
-        var wishlistSpec = new WishlistWithItemsSpecification(username);
-        var wishlist = await _wishlistRepository.FirstOrDefaultAsync(wishlistSpec);
-
-        //TODO: Use Copilot to help you finish this method by removing the item from _wishlistRepository
-
-        await _wishlistRepository.UpdateAsync(wishlist);
-        return wishlist;
-    }
+    //TODO: Use Copilot to create an async method that will remove an item from the wishlist
 
     public async Task TransferWishlistAsync(string anonymousId, string userName)
     {
